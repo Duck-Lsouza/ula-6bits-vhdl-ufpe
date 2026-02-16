@@ -1,2 +1,1 @@
-# ULA-em-VHDL
-trabalho da materia de circuitos digitais
+aqui vai ter um readme muito bom
