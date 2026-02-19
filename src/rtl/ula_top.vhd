@@ -22,7 +22,7 @@ entity ula_top is
 			
 			flag_igualdade : out std_logic;
 			
-			flag_Bmaior : out std_logic;
+			flag_grandeza : out std_logic;
 			
 			--dezena e unidade no display de 7seg
 			
