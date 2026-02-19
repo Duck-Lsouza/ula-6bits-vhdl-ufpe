@@ -1,1 +1,19 @@
 
+db/
+incremental_db/
+output_files/
+simulation/
+
+
+*.rpt
+*.summary
+*.done
+*.jdi
+*.pin
+*.pof
+*.sof
+
+
+*.bak
+*.orig
+*.log
