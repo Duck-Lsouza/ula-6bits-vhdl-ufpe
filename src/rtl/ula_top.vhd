@@ -1,8 +1,9 @@
 library ieee;
-use iee.std_logic_1164.all;
+use ieee.std_logic_1164.all;
 
 entity ula_top is
 	port(
+	
 	--Duas entradas de 6 bits, a Saida e o seletor
 		pin_A : in std_logic_vector(5 downto 0);
 		pin_B : in std_logic_vector(5 downto 0);
@@ -22,15 +23,12 @@ entity ula_top is
 			
 			--dezena e unidade no display de 7seg
 			
-			hex0 : out std_logic(6 downto 0);
-			hex1 : out std_logic(6 downto 0)
+			hex0 : out std_logic_vector(6 downto 0);
+			hex1 : out std_logic_vector(6 downto 0)
 	);
 end entity;
 	
 architecture structural of ula_top is
-
-		signal wire_S : std_logic_vector(5 downto 0 );
-		signal wire_cout : std_logic;
 		
 		--Declarando o componente unidade Aritmética
 		component arithmetic_unit is
@@ -49,10 +47,25 @@ architecture structural of ula_top is
 			seven: out std_logic_vector(6 downto 0)
 		);
 		end component;
+		
+		--sinais internos 
+		
+		signal  wire_arith_out :std_logic_vector(5 downto 0);
+		signal wire_cout: std_logic;
+		
+		
+		
 begin
 		
-		
-		
-		
-begin
-		
+	--conectando a  unidade aritmética
+	U1: arithmetic_unit port map (
+		a => pin_A,
+		b => pin_B,
+		sel => pin_sel(2 downto 0),
+		s => wire_arith_out,
+		cout => wire_cout
+		);
+		--saida para a unidade aritmetica
+		pin_S <= wire_arith_out;
+	end architecture;
+	
