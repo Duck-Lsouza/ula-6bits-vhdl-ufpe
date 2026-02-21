@@ -13,18 +13,15 @@ use ieee.std_logic_1164.all;
 			);
 		end entity;
 		
-architecture behavioral of logic_unit is
+architecture dataflow of logic_unit is
 begin
-		process(a, b, sel)
-		begin
 		
-			case sel is
-				when "00" => s <= a or b ; --00 faz a ou b S = A v B
-				when "01" => s <=  a and b; -- 01 faz a and b S = A ^ B
-				when "10" => s <= not a; --10 nega o A
-				when "11" => s <= not b; --11 nega o B	
-				when others => s <= (others => '0'); --casos indefinidos, adicionar outras operações logicas depois ?
-			end case;
-			
-		end process;
+		--fiquei muito muito tentando a usar o case is com o process
+		with sel select
+			s <= (a or b ) when "00", -- faz a ou b
+					(a and b) when "01", -- faz a and b
+					(not a) when "10", -- nega o a
+					(not b) when "11", -- nega o b
+					(others => '0') when others;
+					
 	end architecture;
