@@ -32,3 +32,6 @@ simulation/
 *.qws
 
 work/
+
+*.ddb
+*.csv
