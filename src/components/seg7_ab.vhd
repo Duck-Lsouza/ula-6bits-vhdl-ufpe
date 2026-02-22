@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity seg7_ab is
 port(
     entrada  : in  std_logic_vector(5 downto 0);
-    sinal    : out std_logic;                    -- '1' = negativo, vai ao LED
+    sinal    : out std_logic;                   
     saida0 : out std_logic_vector(6 downto 0); -- dezena
     saida1 : out std_logic_vector(6 downto 0)  -- unidade
 );
@@ -13,7 +13,6 @@ end seg7_ab;
 architecture arq_seg7_ab of seg7_ab is
 begin
 
--- Sinal: '1' quando MSB = 1 (negativo)
 sinal <= entrada(5);
 
 -- Dezena
