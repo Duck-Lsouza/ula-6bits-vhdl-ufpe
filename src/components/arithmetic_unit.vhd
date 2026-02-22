@@ -6,8 +6,8 @@ entity arithmetic_unit is
 		a, b : in std_logic_vector(5 downto 0);
 		ctrl : in std_logic; -- o ctrl é o bit de controle o qual os meus colegas de turma chama de "sel", mas bit de controle pra mim é mais elegante, né ?
 		s : out std_logic_vector(5 downto 0);
-		cout: out std_logic
-		
+		cout: out std_logic;
+		overflow : out std_logic
 	);
 	
 end entity;
@@ -80,7 +80,7 @@ begin
 	);
 	
 	cout <= c(6);
-	
+	overflow <= c(6) xor c(5);
 end architecture;
 	
 	
