@@ -18,9 +18,9 @@ begin
 	with sel select --queria usar o case aquiiii
 		
 		s <=(a(4 downto 0) & '0') when "00", --multiplica o A por dois(shift_left )
-		('0'& a(5 downto 1)) when "01", --divide o A por dois (shif right)
+		(a(5)& a(5 downto 1)) when "01", --divide o A por dois (shif right)
 		(b(4 downto 0 )& '0') when "10", --multiplica B por dois (shift left)
-		('0' & b(5 downto 1)) when "11", -- divide B por dois (shift right)
+		(b(5) & b(5 downto 1)) when "11", -- divide B por dois (shift right)
 		(others => '0') when others;
 		
 end architecture;		

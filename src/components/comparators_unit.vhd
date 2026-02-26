@@ -6,12 +6,12 @@ use ieee.std_logic_1164.all;
 entity comparators_unit is
 	port(
 		a, b : in std_logic_vector (5 downto 0);
-		s : in std_logic_vector(5 downto 0);-- a saida final da ula pra testar o zero e negativo
+		s : in std_logic_vector(5 downto 0);-- a saida final da ula pra testr o zero e negativo
 		
 		zero : out std_logic;
 		neg: out std_logic;
 		ig : out std_logic; --a =b
-		me : out std_logic -- a<b considerando o complemento de 2
+		me : out std_logic -- a<b considerando o complemeto de 2
 		);
 end entity;
 

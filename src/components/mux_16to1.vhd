@@ -21,20 +21,20 @@ use ieee.std_logic_1164.all;
 entity mux_16to1 is
     port(
         sel    : in  std_logic_vector(3 downto 0);
-        a_add_b  : in  std_logic_vector(5 downto 0); -- A + B
-        a_sub_b  : in  std_logic_vector(5 downto 0); -- A - B
-        a_or_b   : in  std_logic_vector(5 downto 0); -- A or B
-        a_and_b  : in  std_logic_vector(5 downto 0); -- A and B
-        not_a    : in  std_logic_vector(5 downto 0); -- not A
-        not_b    : in  std_logic_vector(5 downto 0); -- not B
-        sl_a     : in  std_logic_vector(5 downto 0); -- shift left A
-        sr_a     : in  std_logic_vector(5 downto 0); -- shift right A
-        pass_a   : in  std_logic_vector(5 downto 0); -- A
-        pass_b   : in  std_logic_vector(5 downto 0); -- B
-        sl_b     : in  std_logic_vector(5 downto 0); -- shift left B
-        sr_b     : in  std_logic_vector(5 downto 0); -- shift right B
-        a_inc    : in  std_logic_vector(5 downto 0); -- A + 1
-        a_dec    : in  std_logic_vector(5 downto 0); -- A - 1
+        a_add_b  : in  std_logic_vector(5 downto 0);
+        a_sub_b  : in  std_logic_vector(5 downto 0); 
+        a_or_b   : in  std_logic_vector(5 downto 0); 
+        a_and_b  : in  std_logic_vector(5 downto 0); 
+        not_a    : in  std_logic_vector(5 downto 0); 
+        not_b    : in  std_logic_vector(5 downto 0); 
+        sl_a     : in  std_logic_vector(5 downto 0); 
+        sr_a     : in  std_logic_vector(5 downto 0); 
+        pass_a   : in  std_logic_vector(5 downto 0);
+        pass_b   : in  std_logic_vector(5 downto 0); 
+        sl_b     : in  std_logic_vector(5 downto 0); 
+        sr_b     : in  std_logic_vector(5 downto 0); 
+        a_inc    : in  std_logic_vector(5 downto 0); 
+        a_dec    : in  std_logic_vector(5 downto 0); 
         s        : out std_logic_vector(5 downto 0)
     );
 end entity;
