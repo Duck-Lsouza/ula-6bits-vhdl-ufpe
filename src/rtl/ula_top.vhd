@@ -57,7 +57,8 @@ architecture structural of ula_top is
         port(
             a, b : in std_logic_vector(5 downto 0);
             sel  : in std_logic_vector (1 downto 0); 
-            s    : out std_logic_vector(5 downto 0)
+            s    : out std_logic_vector(5 downto 0);
+            overflow : out std_logic 
         );
     end component;
 
@@ -120,6 +121,7 @@ architecture structural of ula_top is
     signal wire_s_arith : std_logic_vector(5 downto 0);
     signal wire_s_logic : std_logic_vector(5 downto 0);
     signal wire_s_shift : std_logic_vector(5 downto 0);
+	 signal wire_ov_shift: std_logic;
     
     -- Fio do MUX para a saída
     signal wire_s_final : std_logic_vector(5 downto 0);
@@ -163,11 +165,12 @@ begin
         s   => wire_s_logic
     );
 
-    U_SHIFT: shifter_unit port map(
-        a   => pin_A,
-        b   => pin_B,
-        sel => sel_shift,
-        s   => wire_s_shift
+  U_SHIFT: shifter_unit port map(
+        a        => pin_A,
+        b        => pin_B,
+        sel      => sel_shift,
+        s        => wire_s_shift,
+        overflow => wire_ov_shift 
     );
     U_MUX: mux_16to1 port map(
         sel     => pin_sel,
@@ -223,8 +226,10 @@ begin
     
     -- oia as saidas finais ai 
     pin_S <= wire_s_final;
-    
+    flag_overflow <= wire_ov_arith when (pin_sel = "0000" or pin_sel = "0001" or pin_sel = "1100" or pin_sel = "1101") else 
+                     wire_ov_shift when (pin_sel = "0110" or pin_sel = "1010") else
+                     '0';
     -- O Overflow só vai ser valido nas operacoes aritmeticaas
-    flag_overflow <= wire_ov_arith when (pin_sel = "0000" or pin_sel = "0001" or pin_sel = "1100" or pin_sel = "1101") else '0';
+    
 
 end structural;
